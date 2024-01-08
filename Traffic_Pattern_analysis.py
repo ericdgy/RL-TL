@@ -4,8 +4,8 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics.pairwise import euclidean_distances
 import matplotlib.pyplot as plt
 
-# 读取数据文件 (请确保文件路径正确)
-file_path = 'D:/dataset/merge_test2.csv'  # 替换为你的文件路径
+# 读取数据文件
+file_path = 'D:/dataset/merge_test2.csv'
 df = pd.read_csv(file_path)
 
 # 选取特征
