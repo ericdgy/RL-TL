@@ -6,7 +6,7 @@ folder_path = 'D:/dataset'
 
 # 指定要合并的两个文件的名称
 file1 = 'Friday-02-03-2018_TrafficForML_CICFlowMeter.csv'  # 修改为第一个文件的实际名称
-file2 = 'Thuesday-20-02-2018_TrafficForML_CICFlowMeter.csv'  # 修改为第二个文件的实际名称
+file2 = 'Wednesday-21-02-2018_TrafficForML_CICFlowMeter.csv'  # 修改为第二个文件的实际名称
 
 # 构建这两个文件的完整路径
 file_path1 = os.path.join(folder_path, file1)
