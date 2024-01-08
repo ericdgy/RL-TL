@@ -1,13 +1,16 @@
 import pandas as pd
 
-# 源文件名
-file_name = 'Thuesday-20-02-2018_TrafficForML_CICFlowMeter.csv'
+# CSV文件路径
+csv_file_path = 'D:/dataset/merge_test2.csv'  # 替换为您的CSV文件的路径
+
+# 要删除的列的名称
+column_to_remove = 'Timestamp'  # 替换为您要删除的列的名称
 
 # 读取CSV文件
-data = pd.read_csv('F:/dataset/Thuesday-20-02-2018_TrafficForML_CICFlowMeter.csv')
+df = pd.read_csv(csv_file_path)
 
-# 删除名为"Label"的列
-data = data.drop(columns=['Flow ID','Src IP','Src Port','Dst IP'])
+# 删除指定的列
+df.drop(column_to_remove, axis=1, inplace=True)
 
-# 将结果保存回原始CSV文件，从而覆盖源文件
-data.to_csv(file_name, index=False)
+# 保存修改后的数据回CSV文件
+df.to_csv(csv_file_path, index=False)

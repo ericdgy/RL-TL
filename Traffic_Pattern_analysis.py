@@ -9,12 +9,14 @@ file_path = 'D:/dataset/merge_test2.csv'  # 替换为你的文件路径
 df = pd.read_csv(file_path)
 
 # 选取特征
-selected_features = []  # 根据你的数据集调整特征名称
-normalized_features = MinMaxScaler().fit_transform(df[selected_features])
+features = df.iloc[:, :-1]
+labels = df.iloc[:, -1].unique()
+
+# 特征标准化
+normalized_features = MinMaxScaler().fit_transform(features)
 
 # 计算每个标签的中心点
-labels = ['Benign', 'Bot','DDOS attack-LOIC-UDP', 'DDOS attack-HOIC']  # 替换为你的标签名称
-centroids = {label: normalized_features[df['Label'] == label].mean(axis=0) for label in labels}
+centroids = {label: normalized_features[df.iloc[:, -1] == label].mean(axis=0) for label in labels}
 
 # 计算距离并映射到一维空间
 distances = np.array([min(euclidean_distances([sample], [centroids[label]])[0][0] for label in labels)
@@ -22,8 +24,9 @@ distances = np.array([min(euclidean_distances([sample], [centroids[label]])[0][0
 
 # 绘图
 plt.figure(figsize=(10, 2))
-colors = {label: color for label, color in zip(labels, ['blue', 'green', 'red', 'purple'])}
-plt.scatter(distances, np.zeros_like(distances), c=[colors[label] for label in df['Label']])
+color_map = plt.get_cmap('tab10')
+colors = {label: color_map(i) for i, label in enumerate(labels)}
+plt.scatter(distances, np.zeros_like(distances), c=[colors[label] for label in df.iloc[:, -1]])
 plt.xlabel('Minimum Distance from Centroids')
 plt.yticks([])
 plt.title('One-Dimensional Mapping of Network Traffic Based on Label Similarity')
