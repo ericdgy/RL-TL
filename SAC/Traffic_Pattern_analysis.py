@@ -5,7 +5,7 @@ from sklearn.metrics.pairwise import euclidean_distances
 import matplotlib.pyplot as plt
 
 # 读取数据文件
-file_path = 'F:/dataset/merge_test2.csv'
+file_path = 'D:/dataset/merge_test2.csv'
 df = pd.read_csv(file_path)
 
 # 选取所有特征 (除去标签列)
@@ -13,7 +13,10 @@ features = df.drop(columns=['Label'])
 
 # 处理无穷大值和NaN值
 features.replace([np.inf, -np.inf], np.nan, inplace=True)
-features.fillna(features.mean(), inplace=True)
+
+# 分组计算每个标签的均值, 使用分组均值填充NaN值
+group_means = df.groupby('Label').transform('mean')
+df = df.fillna(group_means)
 
 # 标准化特征
 scaler = MinMaxScaler()

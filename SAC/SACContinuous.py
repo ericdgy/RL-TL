@@ -1,12 +1,11 @@
 import random
 import gym
 import numpy as np
-from tqdm import tqdm
 import torch
 import torch.nn.functional as F
 from torch.distributions import Normal
-import matplotlib.pyplot as plt
-import rl_utils
+from SAC import rl_utils
+
 
 class PolicyNetContinuous(torch.nn.Module):
     def __init__(self, state_dim, hidden_dim, action_dim, action_bound):
