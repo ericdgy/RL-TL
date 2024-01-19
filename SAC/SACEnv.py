@@ -10,7 +10,7 @@ class FeatureClassificationEnv(gym.Env):
         self.action_space = spaces.Discrete(3)  # 0: 左移, 1: 右移, 2: 停止
         self.observation_space = spaces.Box(low=np.array([0, -np.inf]), high=np.array([1, np.inf]), dtype=np.float32)
         self.position = 0  # 初始化智能体位置
-        self.max_position = 4  # 假设线段上有4个位置（0, 1, 2, 3）
+        self.max_position = 4  # 线段上有4个位置（0, 1, 2, 3）
 
     def step(self, action):
         assert self.action_space.contains(action), "%r (%s) invalid"%(action, type(action))
@@ -37,7 +37,7 @@ class FeatureClassificationEnv(gym.Env):
         self.position = 0  # 重置智能体位置
         self.current_feature = 0
         sample = self.dataset.sample().iloc[0]
-        self.features = sample[:-1].tolist()  # 假设最后一列是标签
+        self.features = sample[:-1].tolist()  # 最后一列是标签
         label = sample[-1]  # 标签
         state = [self.current_feature / len(self.features), self.features[self.current_feature]]
         self.state = (state, label)
