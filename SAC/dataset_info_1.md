@@ -1,5 +1,5 @@
-行数: 2097150
-列数: 79
+行数: 2097150  
+列数: 79  
 特征名: ['Dst Port', 'Protocol', 'Flow Duration', 'Tot Fwd Pkts', 'Tot Bwd Pkts', 'TotLen Fwd Pkts', 'TotLen Bwd Pkts', 
 'Fwd Pkt Len Max','Fwd Pkt Len Min', 'Fwd Pkt Len Mean', 'Fwd Pkt Len Std', 'Bwd Pkt Len Max', 'Bwd Pkt Len Min', 
 'Bwd Pkt Len Mean', 'Bwd Pkt Len Std','Flow Byts/s', 'Flow Pkts/s', 'Flow IAT Mean', 'Flow IAT Std', 'Flow IAT Max', 
@@ -11,5 +11,6 @@
 'Fwd Byts/b Avg', 'Fwd Pkts/b Avg', 'Fwd Blk Rate Avg','Bwd Byts/b Avg', 'Bwd Pkts/b Avg', 'Bwd Blk Rate Avg', 
 'Subflow Fwd Pkts', 'Subflow Fwd Byts', 'Subflow Bwd Pkts', 'Subflow Bwd Byts','Init Fwd Win Byts', 'Init Bwd Win Byts', 
 'Fwd Act Data Pkts', 'Fwd Seg Size Min', 'Active Mean', 'Active Std', 'Active Max', 'Active Min', 
-'Idle Mean', 'Idle Std', 'Idle Max', 'Idle Min', 'Label']
-不同的label数量: 4
+'Idle Mean', 'Idle Std', 'Idle Max', 'Idle Min', 'Label']  
+不同的label数量: 4  
+'Friday-02-03-2018_TrafficForML_CICFlowMeter.csv'+'Wednesday-21-02-2018_TrafficForML_CICFlowMeter.csv'
