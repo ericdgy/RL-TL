@@ -52,7 +52,7 @@ class FeatureClassificationEnv(gym.Env):
         self.position = 0  # 重置Agent位置
         self.current_feature = 0
         sample = self.dataset.sample().iloc[0]
-        self.features = sample[:-1].tolist()  # 最后一列是标签
+        self.features = sample[:-1].tolist()
         label = sample[-1]  # 标签
         state = [self.current_feature / len(self.features), self.features[self.current_feature]]
         self.state = (state, label)
